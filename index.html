@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; connect-src 'self' https://www.eduardoschmidt.arq.br; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; base-uri 'none'; form-action 'self'">
+<meta name="robots" content="noindex, nofollow">
+<meta name="referrer" content="no-referrer">
+<meta name="theme-color" content="#EFEEEA">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Central Dudoo">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon-192.png" type="image/png">
+<link rel="apple-touch-icon" href="icon-180.png">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="nucleo/nucleo_web.css">
+<title>Central Dudoo</title>
+</head>
+<body>
+<header class="topo">
+  <div>
+    <div class="marca">Central Dudoo</div>
+    <div class="sub" id="sub-topo"></div>
+  </div>
+  <div class="acoes">
+    <button class="b" id="btn-atualizar" type="button" title="Buscar as licenças de novo" hidden>Atualizar</button>
+    <button class="b" id="btn-sair" type="button" title="Encerrar o acesso neste celular" hidden>Sair</button>
+  </div>
+</header>
+<main id="palco" aria-live="polite"></main>
+<script src="nucleo/nucleo_web.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

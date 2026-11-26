@@ -1,0 +1,35 @@
+/* Núcleo padrão: base visual dos apps web (celular). Design claro do Lite, nunca escuro.
+   FONTE: nucleo_padrao/web. Não edite a cópia dentro do app: edite aqui e rode `sincronizar_nucleo_padrao.py`. */
+:root{--fundo:#EFEEEA;--card:#fff;--interno:#F5F4F0;--texto:#1F1E1B;--suave:#5B5953;--borda:#D6D3CB;--destaque:#8A7655;--sobre:#fff;--ok:#4C7A45;--erro:#B24F39;--alerta:#9A7312;color-scheme:light}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--fundo);color:var(--texto);font:15px/1.4 Jost,system-ui,sans-serif;padding-bottom:calc(24px + env(safe-area-inset-bottom,0px));-webkit-tap-highlight-color:transparent}
+[hidden]{display:none!important}
+.topo{display:flex;justify-content:space-between;align-items:center;gap:10px;max-width:720px;margin:0 auto;padding:calc(14px + env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) 10px max(16px,env(safe-area-inset-left,0px))}
+.marca{font-size:20px;font-weight:600}
+.sub{font-size:12px;color:var(--suave)}
+main{padding:4px max(16px,env(safe-area-inset-right,0px)) 16px max(16px,env(safe-area-inset-left,0px));max-width:720px;margin:0 auto}
+h2{font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--suave);font-weight:500;margin:20px 0 8px}
+.card{background:var(--card);border:1px solid var(--borda);border-radius:12px;padding:12px 14px;margin-bottom:8px}
+.linha{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}
+.linha>div{min-width:0}
+.t{font-weight:500;overflow-wrap:anywhere}
+.m{font-size:13px;color:var(--suave);overflow-wrap:anywhere}
+.ok{color:var(--ok)}.alerta{color:var(--alerta)}.erro{color:var(--erro)}
+.pill{flex:none;font-size:12px;padding:2px 9px;border-radius:99px;background:var(--interno);border:1px solid var(--borda);white-space:nowrap}
+.vazio{color:var(--suave);font-size:14px;padding:6px 2px}
+.b{display:inline-block;border:1px solid var(--borda);background:var(--card);color:var(--texto);border-radius:10px;padding:10px 14px;font:inherit;font-size:14px;min-height:40px;cursor:pointer}
+.b.p{background:var(--destaque);color:var(--sobre);border-color:var(--destaque)}
+.b:disabled{opacity:.5;cursor:default}
+.b.largo{width:100%}
+.acoes{display:flex;gap:8px;flex-wrap:wrap}
+label{display:block;font-size:13px;color:var(--suave);margin-bottom:4px}
+input{width:100%;min-width:0;font:inherit;font-size:16px;padding:10px 12px;border:1px solid var(--borda);border-radius:10px;background:var(--card);color:var(--texto);margin-bottom:10px}
+.kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:10px}
+.kpi{border:1px solid var(--borda);background:var(--card);color:var(--texto);border-radius:12px;padding:10px 6px;font:inherit;text-align:center;cursor:pointer}
+.kpi b{display:block;font-size:22px;font-weight:600}
+.kpi span{font-size:12px;color:var(--suave)}
+.kpi.on{background:var(--destaque);border-color:var(--destaque);color:var(--sobre)}
+.kpi.on span,.kpi.on b{color:var(--sobre)}
+.caixa{max-width:380px;margin:28px auto}
+.toast{position:fixed;left:16px;right:16px;bottom:calc(20px + env(safe-area-inset-bottom,0px));max-width:480px;margin:0 auto;background:var(--texto);color:var(--fundo);padding:10px 14px;border-radius:10px;font-size:14px;z-index:5}
