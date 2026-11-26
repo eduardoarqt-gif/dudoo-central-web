@@ -3,7 +3,7 @@
 'use strict';
 
 const BASE = 'https://www.eduardoschmidt.arq.br/_functions';
-const VERSAO = '1';                                   // igual ao número do cache em service-worker.js
+const VERSAO = '2';                                   // igual ao número do cache em service-worker.js
 const CHAVE_SESSAO = 'dudoo-central-web-sessao';
 const DIAS_AVISO = 30;
 const ERROS = {
@@ -12,6 +12,16 @@ const ERROS = {
   bloqueado_temporariamente: 'Muitas tentativas erradas: o acesso fica bloqueado por 15 minutos.',
   sessao_invalida: 'Sua sessão terminou. Entre de novo.',
   sem_rede: 'Não consegui falar com o servidor. Confira a internet.',
+};
+
+// O servidor manda o código do plano e do tipo de negócio; aqui vira nome. Código novo, sem nome na lista, aparece sem os traços.
+const PLANOS = { padrao: 'Padrão', interno: 'Interno', cortesia: 'Cortesia', desenvolvedor: 'Desenvolvedor', teste_de_cobranca_r_5: 'Teste de cobrança R$ 5' };
+const NEGOCIOS = { advocacia: 'Advocacia', completo: 'Completo (desenvolvimento)', dentista: 'Odontologia', estetica: 'Estética', festas: 'Festas e eventos', fotografia: 'Fotografia', generico: 'Genérico', medicina: 'Medicina', psicologia: 'Psicologia', salao: 'Salão de beleza', tricologia: 'Tricologia' };
+const nomeDe = (mapa, codigo) => {
+  if (!codigo) return '';
+  if (mapa[codigo]) return mapa[codigo];
+  const texto = String(codigo).replace(/_/g, ' ');
+  return texto.charAt(0).toUpperCase() + texto.slice(1);
 };
 
 const { $, esc, semAcento, dataBr, diasAte, lerData } = NucleoWeb;
@@ -127,7 +137,7 @@ function telaLicencas() {
 function cartao(l) {
   const s = situacao(l);
   const vagas = Number(l.limite_usuarios) || 0;
-  const detalhes = [l.plano, vagas ? `${vagas} ${vagas === 1 ? 'usuário' : 'usuários'}` : '', l.perfil].filter(Boolean).join(' · ');
+  const detalhes = [nomeDe(PLANOS, l.plano), vagas ? `${vagas} ${vagas === 1 ? 'usuário' : 'usuários'}` : '', nomeDe(NEGOCIOS, l.perfil)].filter(Boolean).join(' · ');
   const validade = dataBr(l.valida_ate);
   return `<article class="card">
     <div class="linha"><div class="t">${esc(l.cliente || 'Sem nome')}</div><span class="pill ${s.classe}">${esc(s.texto)}</span></div>
